@@ -32,6 +32,28 @@ document.addEventListener('turbolinks:load', () => {
   const poke_container =
   document.getElementById('poke_container');
   const dex_id = 150;
+  const colors = {
+    grass: '#f5f5f5',
+    fire: '#f5f5f5',
+    water: '#f5f5f5',
+    electric: '#f5f5f5',
+    ice: '#f5f5f5',
+    poison: '#f5f5f5',
+    ground: '#f5f5f5',
+    rock: '#f5f5f5',
+    bug: '#f5f5f5',
+    dragon: '#f5f5f5',
+    flying: '#f5f5f5',
+    normal: '#f5f5f5',
+    fighting: '#f5f5f5',
+    psychic: '#f5f5f5',
+    ghost: '#f5f5f5',
+    dark: '#f5f5f5',
+    steel: '#f5f5f5',
+    fairy: '#f5f5f5',
+  };
+
+  const main_types = Object.keys(colors);
 
 
   const fetchPokemon = async () => {
@@ -54,7 +76,7 @@ document.addEventListener('turbolinks:load', () => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
-
+    const type = main_types.find(mt => poke_types.indexOf(mt) > -1);
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
     const pokeInnerHTML = `
