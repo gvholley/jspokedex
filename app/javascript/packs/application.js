@@ -29,6 +29,15 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  const poke_container =
+  document.getElementById('poke_container');
+  const dex_id = 150;
+
+  const getPokemon = async id => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    const res = await fetch(url);
+    const pokemon = res.json();
+    console.log(pokemon);
+  }
+  getPokemon(1);
 });
