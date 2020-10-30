@@ -33,24 +33,24 @@ document.addEventListener('turbolinks:load', () => {
   document.getElementById('poke_container');
   const dex_id = 150;
   const colors = {
-    grass: '#f5f5f5',
-    fire: '#f5f5f5',
-    water: '#f5f5f5',
-    electric: '#f5f5f5',
-    ice: '#f5f5f5',
-    poison: '#f5f5f5',
-    ground: '#f5f5f5',
-    rock: '#f5f5f5',
-    bug: '#f5f5f5',
-    dragon: '#f5f5f5',
-    flying: '#f5f5f5',
-    normal: '#f5f5f5',
-    fighting: '#f5f5f5',
-    psychic: '#f5f5f5',
-    ghost: '#f5f5f5',
-    dark: '#f5f5f5',
-    steel: '#f5f5f5',
-    fairy: '#f5f5f5',
+    Grass: '#63BB5B',
+    fire: '#FF9C54',
+    water: '#4E90D5',
+    electric: '#F3D23B',
+    ice: '#74CEC0',
+    poison: '#AB6AC8',
+    ground: '#D97746',
+    rock: '#C7B78B',
+    bug: '#90C12C',
+    dragon: '#0A6DC4',
+    flying: '#8FA8DD',
+    normal: '#f9199A1',
+    fighting: '#fCE4069',
+    psychic: '#F97176',
+    ghost: '#5269AC',
+    dark: '#5A5366',
+    steel: '#5A8EA1',
+    fairy: '#EC8FE6',
   };
 
   const main_types = Object.keys(colors);
@@ -78,13 +78,16 @@ document.addEventListener('turbolinks:load', () => {
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = main_types.find(mt => poke_types.indexOf(mt) > -1);
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const card_color = colors[type];
+
+    pokemonEl.style.backgroundColor = card_color;
 
     const pokeInnerHTML = `
     <div class="img-container">
-    <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png">
+    <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" />
     </div>
     <div class ="info">
-      <span class="number">${pokemon.id}</span>
+      <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
       <h3 class="name">${name}</h3>
       <small class="type">Type: <span>${type}</span></small>
     </div>
