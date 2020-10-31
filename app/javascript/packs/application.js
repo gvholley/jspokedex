@@ -33,7 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   document.getElementById('poke_container');
   const dex_id = 150;
   const colors = {
-    Grass: '#63BB5B',
+    grass: '#63BB5B',
     fire: '#FF9C54',
     water: '#4E90D5',
     electric: '#F3D23B',
@@ -43,8 +43,8 @@ document.addEventListener('turbolinks:load', () => {
     rock: '#C7B78B',
     bug: '#90C12C',
     dragon: '#0A6DC4',
-    flying: '#8FA8DD',
     normal: '#f9199A1',
+    flying: '#8FA8DD',
     fighting: '#fCE4069',
     psychic: '#F97176',
     ghost: '#5269AC',
@@ -54,6 +54,10 @@ document.addEventListener('turbolinks:load', () => {
   };
 
   const main_types = Object.keys(colors);
+
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 
   const fetchPokemon = async () => {
@@ -72,6 +76,7 @@ document.addEventListener('turbolinks:load', () => {
 
   fetchPokemon();
 
+
   function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
@@ -89,7 +94,7 @@ document.addEventListener('turbolinks:load', () => {
     <div class ="info">
       <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
       <h3 class="name">${name}</h3>
-      <small class="type">Type: <span>${type}</span></small>
+      <small class="type">Type: <span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
     </div>
     `;
 
