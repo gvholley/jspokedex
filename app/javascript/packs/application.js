@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
     dragon: '#0A6DC4',
     normal: '#f9199A1',
     flying: '#8FA8DD',
-    fighting: '#fCE4069',
+    fighting: '#D80A49',
     psychic: '#F97176',
     ghost: '#5269AC',
     dark: '#5A5366',
@@ -81,7 +81,8 @@ document.addEventListener('turbolinks:load', () => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
-    const type = main_types.find(mt => poke_types.indexOf(mt) > -1);
+    const type = poke_types.find(mt => main_types.indexOf(mt) > -1);
+    const second_type = poke_types.find(mt => main_types.indexOf(mt) > 1);
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const card_color = colors[type];
 
@@ -94,7 +95,7 @@ document.addEventListener('turbolinks:load', () => {
     <div class ="info">
       <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
       <h3 class="name">${name}</h3>
-      <small class="type">Type: <span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
+      <small class="type"><span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
     </div>
     `;
 
