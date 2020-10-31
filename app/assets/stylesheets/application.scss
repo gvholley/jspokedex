@@ -43,6 +43,9 @@ h1 {
   margin: 10px;
   padding: 20px;
   text-align: center;
+      &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .pokemon .img-container {
