@@ -74,6 +74,13 @@ document.addEventListener('turbolinks:load', () => {
 
   };
 
+  /* const getFlavor = async id => {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
+    const res = await fetch(url);
+    const flavor = await res.json();
+  }; */
+
+
   fetchPokemon();
 
 
@@ -81,8 +88,9 @@ document.addEventListener('turbolinks:load', () => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
-    const type = poke_types.find(mt => main_types.indexOf(mt) > -1);
-    const second_type = poke_types.find(mt => main_types.indexOf(mt) > 1);
+    const type = pokemon.types[0].type.name;
+    //const stats = pokemon.stats[0].stat.name;
+    //const ability = pokemon.abilities[0].ability.name;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const card_color = colors[type];
 
