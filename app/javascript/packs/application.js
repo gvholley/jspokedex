@@ -74,11 +74,12 @@ document.addEventListener('turbolinks:load', () => {
 
   function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
+    const pokemonElBack = document.createElement('div');
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = pokemon.types[0].type.name;
     //const stats = pokemon.stats[0].stat.name;
-    //const ability = pokemon.abilities[0].ability.name;
+    const ability = pokemon.abilities[0].ability.name;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const card_color = colors[type];
 
@@ -90,7 +91,7 @@ document.addEventListener('turbolinks:load', () => {
     </div>
     <div class ="info">
       <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
-      <h3 class="name">${name}</h3>
+      <a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)" class="name"><h3>${name}</h3></a>
       <small class="type"><span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
     </div>
     `;
@@ -98,13 +99,29 @@ document.addEventListener('turbolinks:load', () => {
     pokemonEl.innerHTML = pokeInnerHTML;
 
     poke_container.appendChild(pokemonEl);
-  }
 
-  /*const card = document.querySelectorAll('.pokemon');
 
-  function flipCard() {
-    this.classList.toggle('is-flipped');
-  }
-  card.forEach((card) => card.addEventListener("click", flipCard));*/
+  const pokeCardBack = `
+    <div class="flipped">
+      <div class="img-container">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
+      </div>
+      <div class ="info">
+        <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
+        <h3 class="name">${name}</h3>
+        <small class="type"><span>${ability}</span></small>
+      </div>
+    </div>
+    `;
 
-});
+    pokemonElBack.innerHTML = pokeCardBack;
+
+    const back = document.querySelectorAll('.pokemon');
+
+    function flipCard() {
+      this.classList.toggle('flipped');
+    }
+    back.forEach((card) => card.addEventListener("click", flipCard));
+
+
+}});
