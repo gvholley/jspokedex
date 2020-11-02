@@ -31,7 +31,7 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   const poke_container =
   document.getElementById('poke_container');
-  const dex_id = 150;
+  const dex_id = 151;
   const colors = {
     grass: '#63BB5B',
     fire: '#FF9C54',
@@ -55,10 +55,6 @@ document.addEventListener('turbolinks:load', () => {
 
   const main_types = Object.keys(colors);
 
-  function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
 
   const fetchPokemon = async () => {
     for (let i = 1; i<= dex_id; i++) {
@@ -74,15 +70,7 @@ document.addEventListener('turbolinks:load', () => {
 
   };
 
-  /* const getFlavor = async id => {
-    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
-    const res = await fetch(url);
-    const flavor = await res.json();
-  }; */
-
-
   fetchPokemon();
-
 
   function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
@@ -111,5 +99,12 @@ document.addEventListener('turbolinks:load', () => {
 
     poke_container.appendChild(pokemonEl);
   }
+
+  /*const card = document.querySelectorAll('.pokemon');
+
+  function flipCard() {
+    this.classList.toggle('is-flipped');
+  }
+  card.forEach((card) => card.addEventListener("click", flipCard));*/
 
 });
