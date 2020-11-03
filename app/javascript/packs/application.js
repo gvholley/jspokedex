@@ -52,10 +52,10 @@ document.addEventListener('turbolinks:load', () => {
     steel: '#5A8EA1',
     fairy: '#EC8FE6',
   };
-
+//Fetch card colors
   const main_types = Object.keys(colors);
 
-
+//Get Pokemon from API
   const fetchPokemon = async () => {
     for (let i = 1; i<= dex_id; i++) {
       await getPokemon(i);
@@ -72,6 +72,7 @@ document.addEventListener('turbolinks:load', () => {
 
   fetchPokemon();
 
+//Variables for Pokemon Card data from API
   function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
     const pokemonElBack = document.createElement('div');
@@ -85,6 +86,7 @@ document.addEventListener('turbolinks:load', () => {
 
     pokemonEl.style.backgroundColor = card_color;
 
+    //Card Front data and HTML
     const pokeInnerHTML = `
     <div class="img-container">
     <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" />
@@ -100,7 +102,7 @@ document.addEventListener('turbolinks:load', () => {
 
     poke_container.appendChild(pokemonEl);
 
-
+// Back of the card data
   const pokeCardBack = `
     <div class="flipped">
       <div class="img-container">
@@ -116,6 +118,7 @@ document.addEventListener('turbolinks:load', () => {
 
     pokemonElBack.innerHTML = pokeCardBack;
 
+    //Flip card from front to back function
     const back = document.querySelectorAll('.pokemon');
 
     function flipCard() {
