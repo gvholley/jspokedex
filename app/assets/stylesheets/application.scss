@@ -52,16 +52,31 @@ h3 {
 }
 
 .pokemon {
+  position: relative;
+}
+
+.pokemon>div {
   background-color: #eee;
   border-radius: 20px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   margin: 10px;
   padding: 20px;
   text-align: center;
-  transition: transform .3s;
-      &:hover {
-    transform: scale(1.2);
-  }
+  transition: transform 0.5s;
+  -webkit-backface-visibility: hidden;
+}
+
+.pokemon:hover {
+  transform: scale(1.2);
+}
+
+.pokemon .back {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
 }
 
 .pokemon .img-container {
@@ -104,7 +119,11 @@ h3 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.pokemon.flipped {
-  transform: rotateY(180deg);
+.pokemon .flipped {
+  transform: rotateY(-180deg);
+}
+
+.style {
+  border-radius: 5px;
 }
 
