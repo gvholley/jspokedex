@@ -85,9 +85,13 @@ document.addEventListener('turbolinks:load', () => {
     const card_color = colors[type];
 
     pokemonEl.style.backgroundColor = card_color;
+    pokemonElBack.style.backgroundColor = card_color;
+
 
     //Card Front data and HTML
-    const pokeInnerHTML = `
+  const pokemonFrontEl = document.createElement('div');
+  pokemonFrontEl.classList.add('front');
+  pokemonFrontEl.innerHTML = `
     <div class="img-container">
     <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" />
     </div>
@@ -97,34 +101,33 @@ document.addEventListener('turbolinks:load', () => {
       <small class="type"><span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
     </div>
     `;
+  pokemonEl.appendChild(pokemonFrontEl);
 
-    pokemonEl.innerHTML = pokeInnerHTML;
-
-    poke_container.appendChild(pokemonEl);
-
-// Back of the card data
-  const pokeCardBack = `
-    <div class="flipped">
+  // Back of the card data
+  const pokemonBackEl = document.createElement('div');
+  pokemonBackEl.classList.add('back');
+  pokemonBackEl.classList.add('flipped');
+  pokemonBackEl.innerHTML = `
       <div class="img-container">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
       </div>
       <div class ="info">
         <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
-        <h3 class="name">${name}</h3>
+        <a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)" class="name"><h3>${name}</h3></a>
         <small class="type"><span>${ability}</span></small>
       </div>
-    </div>
     `;
+  pokemonEl.appendChild(pokemonBackEl);
 
-    pokemonElBack.innerHTML = pokeCardBack;
+  poke_container.appendChild(pokemonEl);
 
-    //Flip card from front to back function
-    const back = document.querySelectorAll('.pokemon');
+  function flipCard() {
+    const p = this.closest('.pokemon');
+    p.querySelector('.front').classList.toggle('flipped');
+    p.querySelector('.back').classList.toggle('flipped');
+  }
+  pokemonFrontEl.addEventListener("click", flipCard);
+  pokemonBackEl.addEventListener("click", flipCard);
+}
 
-    function flipCard() {
-      this.classList.toggle('flipped');
-    }
-    back.forEach((card) => card.addEventListener("click", flipCard));
-
-
-}});
+});
