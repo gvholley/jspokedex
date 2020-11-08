@@ -75,7 +75,6 @@ document.addEventListener('turbolinks:load', () => {
   //testing gitpush
   //changed password
   //Changed password
-  //again
 
 
 
@@ -86,6 +85,7 @@ document.addEventListener('turbolinks:load', () => {
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = pokemon.types[0].type.name;
+    const second_type = pokemon.types[1] ? pokemon.types[1].type.name: undefined;
     //const moves = pokemon.moves[0].move.name;
     //const stats = pokemon.stats[0].stat.name;
     const ability = pokemon.abilities[0].ability.name;
@@ -107,7 +107,7 @@ document.addEventListener('turbolinks:load', () => {
     <div class ="info">
       <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
       <a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)" class="name"><h3>${name}</h3></a>
-      <small class="type"><span>${type.charAt(0).toUpperCase() + type.slice(1)}</span></small>
+      <small class="type"><span>${type.charAt(0).toUpperCase() + type.slice(1)}${second_type!=undefined ? `/${second_type.charAt(0).toUpperCase() + second_type.slice(1)}`: ''}</span></small>
     </div>
     `;
   pokemonEl.appendChild(pokemonFrontEl);
