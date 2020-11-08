@@ -72,6 +72,8 @@ document.addEventListener('turbolinks:load', () => {
 
   fetchPokemon();
 
+  //testing gitpush
+
 
 
 //Variables for Pokemon Card data from API
