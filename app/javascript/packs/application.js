@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
     dragon: '#0A6DC4',
     normal: '#FEFEFF',
     flying: '#8FA8DD',
-    fighting: '#D80A49',
+    fighting: '#D67873',
     psychic: '#F97176',
     ghost: '#5269AC',
     dark: '#5A5366',
@@ -72,6 +72,8 @@ document.addEventListener('turbolinks:load', () => {
 
   fetchPokemon();
 
+
+
 //Variables for Pokemon Card data from API
   function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
@@ -79,6 +81,7 @@ document.addEventListener('turbolinks:load', () => {
     pokemonEl.classList.add('pokemon');
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = pokemon.types[0].type.name;
+    //const moves = pokemon.moves[0].move.name;
     //const stats = pokemon.stats[0].stat.name;
     const ability = pokemon.abilities[0].ability.name;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
@@ -114,9 +117,9 @@ document.addEventListener('turbolinks:load', () => {
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
       </div>
       <div class ="info">
-        <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
+        <span class="number">Ability</span>
         <a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)" class="name"><h3>${name}</h3></a>
-        <small class="type"><span>${ability}</span></small>
+        <small class="type capitalize"><span>${ability.split('-').join(' ')}</span></small>
       </div>
     `;
   pokemonEl.appendChild(pokemonBackEl);
