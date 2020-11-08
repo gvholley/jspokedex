@@ -43,7 +43,7 @@ document.addEventListener('turbolinks:load', () => {
     rock: '#C7B78B',
     bug: '#90C12C',
     dragon: '#0A6DC4',
-    normal: '#f9199A1',
+    normal: '#FEFEFF',
     flying: '#8FA8DD',
     fighting: '#D80A49',
     psychic: '#F97176',
@@ -84,13 +84,14 @@ document.addEventListener('turbolinks:load', () => {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const card_color = colors[type];
 
-    pokemonEl.style.backgroundColor = card_color;
-    pokemonElBack.style.backgroundColor = card_color;
+    //pokemonEl.style.backgroundColor = card_color;
+    //pokemonElBack.style.backgroundColor = card_color;
 
 
     //Card Front data and HTML
   const pokemonFrontEl = document.createElement('div');
   pokemonFrontEl.classList.add('front');
+  pokemonFrontEl.style.backgroundColor = card_color;
   pokemonFrontEl.innerHTML = `
     <div class="img-container">
     <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" />
@@ -107,6 +108,7 @@ document.addEventListener('turbolinks:load', () => {
   const pokemonBackEl = document.createElement('div');
   pokemonBackEl.classList.add('back');
   pokemonBackEl.classList.add('flipped');
+  pokemonBackEl.style.backgroundColor = card_color;
   pokemonBackEl.innerHTML = `
       <div class="img-container">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
