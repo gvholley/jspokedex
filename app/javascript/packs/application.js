@@ -96,6 +96,7 @@ document.addEventListener('turbolinks:load', () => {
     //pokemonElBack.style.backgroundColor = card_color;
     //Testing
     //Testing2
+    //Testing after update
 
 
     //Card Front data and HTML
