@@ -62,6 +62,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   };
 
+
   const getPokemon = async id => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
@@ -72,9 +73,6 @@ document.addEventListener('turbolinks:load', () => {
 
   fetchPokemon();
 
-  //testing gitpush
-  //changed password
-  //Changed password
 
 
 
@@ -94,10 +92,6 @@ document.addEventListener('turbolinks:load', () => {
 
     //pokemonEl.style.backgroundColor = card_color;
     //pokemonElBack.style.backgroundColor = card_color;
-    //Testing
-    //Testing2
-    //Testing after update
-    //Hmm
 
 
     //Card Front data and HTML
@@ -127,8 +121,8 @@ document.addEventListener('turbolinks:load', () => {
       </div>
       <div class ="info">
         <span class="number">Ability</span>
-        <a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)" class="name"><h3>${name}</h3></a>
-        <small class="type capitalize"><span>${ability.split('-').join(' ')}</span></small>
+        <h3 class="capitalize">${ability.split('-').join(' ')}</h3>
+
       </div>
     `;
   pokemonEl.appendChild(pokemonBackEl);
