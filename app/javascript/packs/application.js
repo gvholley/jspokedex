@@ -97,6 +97,7 @@ document.addEventListener('turbolinks:load', () => {
     //Testing
     //Testing2
     //Testing after update
+    //Hmm
 
 
     //Card Front data and HTML
