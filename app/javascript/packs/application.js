@@ -84,14 +84,9 @@ document.addEventListener('turbolinks:load', () => {
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = pokemon.types[0].type.name;
     const second_type = pokemon.types[1] ? pokemon.types[1].type.name: undefined;
-    //const moves = pokemon.moves[0].move.name;
-    //const stats = pokemon.stats[0].stat.name;
     const ability = pokemon.abilities[0].ability.name;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const card_color = colors[type];
-
-    //pokemonEl.style.backgroundColor = card_color;
-    //pokemonElBack.style.backgroundColor = card_color;
 
 
     //Card Front data and HTML

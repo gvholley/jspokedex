@@ -102,7 +102,7 @@ h3 {
 
 
 .pokemon .img-container img {
-  margin-top: 20px;
+  margin-top: 15px;
   max-width: 80%;
 }
 
@@ -128,6 +128,12 @@ h3 {
   font-family: 'Cabin', sans-serif;
 }
 
+.pokemon .name:hover {
+  color: white;
+  transition-duration: 0.3s;
+
+}
+
 
 .pokemon .type {
   background-color: rgba(0, 0, 0, 0.1);
@@ -148,4 +154,14 @@ h3 {
 .ability {
   margin-top: 20px;
   font-family: 'Cabin', sans-serif;
+}
+
+.logo img{
+
+  margin-top: 10px;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
