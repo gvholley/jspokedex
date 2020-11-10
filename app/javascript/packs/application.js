@@ -31,7 +31,7 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   const poke_container =
   document.getElementById('poke_container');
-  const dex_id = 151;
+  const dex_id = 251;
   const colors = {
     grass: '#63BB5B',
     fire: '#FF9C54',
@@ -43,7 +43,7 @@ document.addEventListener('turbolinks:load', () => {
     rock: '#C7B78B',
     bug: '#90C12C',
     dragon: '#0A6DC4',
-    normal: '#FEFEFF',
+    normal: '#D3D3D3',
     flying: '#8FA8DD',
     fighting: '#D67873',
     psychic: '#F97176',
@@ -116,12 +116,12 @@ document.addEventListener('turbolinks:load', () => {
   pokemonBackEl.classList.add('flipped');
   pokemonBackEl.style.backgroundColor = card_color;
   pokemonBackEl.innerHTML = `
-      <div class="img-container">
+      <div class="img-container-back">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
       </div>
       <div class ="info">
         <span class="number">Ability</span>
-        <h3 class="capitalize">${ability.split('-').join(' ')}</h3>
+        <h4 class="ability capitalize">${ability.split('-').join(' ')}</h4>
 
       </div>
     `;
